@@ -14,12 +14,17 @@ class QuizEngine:
         self.schema = SentenceEvaluation.model_json_schema()
 
     def evaluate_sentence(self, word: str, definition: str, user_sentence: str) -> SentenceEvaluation:
+        safe_word = word.replace("<", "").replace(">", "").strip()
+        safe_def = definition.replace("<", "").replace(">", "").strip()
+        safe_sentence = user_sentence.replace("<", "").replace(">", "").strip()
+
+        # Prompt Engineering: use XML to isolate all labels
         prompt = (
-            f"Word: '{word}'\n"
-            f"Target Definition: {definition}\n"
-            f"User's Sentence: \"{user_sentence}\"\n\n"
-            "Evaluate if the user's sentence uses the word correctly in terms of semantics, collocation, and grammar. "
-            "Think step-by-step in the 'reasoning' field before providing the final boolean judgment and feedback."
+            "Evaluate if the user's sentence uses the target word correctly in terms of semantics, collocation, and grammar.\n"
+            "Think step-by-step in the 'reasoning' field before providing the final boolean judgment and feedback.\n\n"
+            f"<target_word>\n{safe_word}\n</target_word>\n\n"
+            f"<target_definition>\n{safe_def}\n</target_definition>\n\n"
+            f"<user_sentence>\n{safe_sentence}\n</user_sentence>"
         )
 
         print(f"[System] Sending sentence to LLM for evaluation...")
