@@ -50,7 +50,7 @@ This project translates the theoretical and architectural concepts from the `ai-
 * **Embedding Model**: `SentenceTransformers` (`all-MiniLM-L6-v2`)
 * **Vector Storage & Retrieval**: `SQLite3` + `NumPy` (In-memory Cosine Similarity computation)
 * **Backend API**: `FastAPI` + `Uvicorn` (Asynchronous REST API)
-* **Frontend Visualization**: `Streamlit` (Still in progress)
+* **Frontend Visualization**: `Streamlit`
 
 ## Project Structure
 
@@ -108,6 +108,14 @@ Run the ASGI server to load the models into memory (loads as a singleton to prev
 uvicorn src.api.main:app --reload
 ```
 API Documentation (Swagger UI) will be available at: `http://127.0.0.1:8000/docs`
+
+**2. Start the Streamlit Frontend (In a separate terminal)**
+
+```bash
+source .venv/bin/activate
+streamlit run src/ui/app.py
+```
+The interactive dashboard will automatically open in your default browser.
 
 ## API Endpoints Overview
 

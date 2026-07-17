@@ -50,7 +50,7 @@
 * **語意向量模型 (Embedding)**: `SentenceTransformers` (`all-MiniLM-L6-v2`)
 * **向量儲存與檢索**: `SQLite3` + `NumPy` (記憶體內計算餘弦相似度)
 * **後端 API**: `FastAPI` + `Uvicorn` (非同步 RESTful API)
-* **前端視覺化**: `Streamlit` (仍在開發中)
+* **前端視覺化**: `Streamlit`
 
 ## 專案結構
 
@@ -108,6 +108,15 @@ hf download lmstudio-community/Meta-Llama-3-8B-Instruct-GGUF Meta-Llama-3-8B-Ins
 uvicorn src.api.main:app --reload
 ```
 API 說明文件 (Swagger UI) 啟動後將可於以下網址查看：`http://127.0.0.1:8000/docs`
+
+**2. 啟動 Streamlit 前端（在獨立的終端機中）**
+
+```bash
+source .venv/bin/activate
+streamlit run src/ui/app.py
+```
+
+互動式儀表板將會自動在您的預設瀏覽器中開啟。
 
 ## API 端點總覽
 
