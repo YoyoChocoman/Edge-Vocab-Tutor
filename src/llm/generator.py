@@ -18,13 +18,8 @@ class VocabCard(BaseModel):
     example_sentence: str = Field(..., description="A GRE-level example sentence")
 
 class LLMEngine:
-    def __init__(self, model_path: str):
-        self.llm = Llama(
-            model_path=model_path,
-            n_gpu_layers=-1,
-            n_ctx=2048,
-            verbose=False
-        )
+    def __init__(self, llm: Llama):
+        self.llm = llm
         self.schema = VocabCard.model_json_schema()
 
     def generate_vocab_card(self, word: str) -> VocabCard:

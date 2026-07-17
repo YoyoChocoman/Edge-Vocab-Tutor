@@ -9,13 +9,8 @@ class SentenceEvaluation(BaseModel):
     feedback: str = Field(..., description="Actionable feedback or correction for the user.")
 
 class QuizEngine:
-    def __init__(self, model_path: str):
-        self.llm = Llama(
-            model_path=model_path,
-            n_gpu_layers=-1,
-            n_ctx=2048,
-            verbose=False
-        )
+    def __init__(self, llm: Llama):
+        self.llm = llm
         self.schema = SentenceEvaluation.model_json_schema()
 
     def evaluate_sentence(self, word: str, definition: str, user_sentence: str) -> SentenceEvaluation:
