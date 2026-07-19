@@ -3,6 +3,8 @@ from llama_cpp import Llama
 from pydantic import BaseModel, Field
 from typing import List
 
+from src.utils.security import sanitize_input
+
 # define a singal meaning of a word
 class WordSense(BaseModel):
     part_of_speech: str = Field(..., description="Part of speech (e.g., noun, verb, adjective)")
@@ -23,9 +25,12 @@ class LLMEngine:
         self.schema = VocabCard.model_json_schema()
 
     def generate_vocab_card(self, word: str) -> VocabCard:
+        safe_word = sanitize_input(word)
+
         prompt = (
-            f"Analyze the English word '{word}'. "
-            f"Provide a vocabulary card. Keep definitions and examples extremely concise (under 15 words)."
+            f"Analyze the English word provided below.\n"
+            f"Provide a vocabulary card. Keep definitions and examples extremely concise (under 15 words).\n\n"
+            f"<word>\n{safe_word}\n</word>"
         )
 
         response = self.llm.create_chat_completion(

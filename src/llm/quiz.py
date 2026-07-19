@@ -2,6 +2,8 @@ import json
 from llama_cpp import Llama
 from pydantic import BaseModel, Field
 
+from src.utils.security import sanitize_input
+
 # define evaluation Schema to force LLM into reasoning
 class SentenceEvaluation(BaseModel):
     reasoning: str = Field(..., description="Step-by-step analysis of the user's sentence regarding grammar, semantics, and GRE-level appropriateness.")
@@ -14,9 +16,9 @@ class QuizEngine:
         self.schema = SentenceEvaluation.model_json_schema()
 
     def evaluate_sentence(self, word: str, definition: str, user_sentence: str) -> SentenceEvaluation:
-        safe_word = word.replace("<", "").replace(">", "").strip()
-        safe_def = definition.replace("<", "").replace(">", "").strip()
-        safe_sentence = user_sentence.replace("<", "").replace(">", "").strip()
+        safe_word = sanitize_input(word)
+        safe_def = sanitize_input(definition)
+        safe_sentence = sanitize_input(user_sentence)
 
         # Prompt Engineering: use XML to isolate all labels
         prompt = (
