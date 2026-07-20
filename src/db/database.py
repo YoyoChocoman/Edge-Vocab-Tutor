@@ -47,8 +47,9 @@ class VocabDatabase:
         )
         self.conn.commit()
 
-    def get_similar_words(self, target_word: str, top_k: int = 5) -> List[Tuple[str, float]]:
+    def get_similar_words(self, target_word: str, top_k: int = 5, threshold: float = 0.3) -> List[Tuple[str, float]]:
         """Use Cosine Similarity to find the similar words"""
+        target_word = target_word.lower().strip()
         cursor = self.conn.cursor()
 
         # get the target_word vector
@@ -72,7 +73,9 @@ class VocabDatabase:
             r_emb = np.frombuffer(r_emb_bytes, dtype=np.float32)
 
             sim = np.dot(target_emb, r_emb) / (np.linalg.norm(target_emb) * np.linalg.norm(r_emb))
-            results.append((r_word, float(sim)))
+
+            if sim >= threshold:
+                results.append((r_word, float(sim)))
 
         results.sort(key=lambda x: x[1], reverse=True)
         return results[:top_k]
