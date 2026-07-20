@@ -3,6 +3,7 @@ from llama_cpp import Llama
 from pydantic import BaseModel, Field
 
 from src.utils.security import sanitize_input
+from src.utils.parser import extract_json_string
 
 # define evaluation Schema to force LLM into reasoning
 class SentenceEvaluation(BaseModel):
@@ -46,11 +47,14 @@ class QuizEngine:
         )
 
         result_str = response["choices"][0]["message"]["content"]
+        clean_json = extract_json_string(result_str)
+        parsed_dict = json.loads(clean_json, strict=False)
 
         try:
-            return SentenceEvaluation.model_validate_json(result_str)
+            return SentenceEvaluation.model_validate(parsed_dict)
         except Exception as e:
-            print(f"[System] Evaluation parsing failed: {e}\nRaw output: {result_str}")
+            print(f"[System] Evaluation parsing failed: {e}")
+            print(f"[System] Raw output: {result_str}")
             return None
 
 # For Test

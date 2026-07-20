@@ -4,6 +4,7 @@ from pydantic import BaseModel, Field
 from typing import List
 
 from src.utils.security import sanitize_input
+from src.utils.parser import extract_json_string
 
 # define a singal meaning of a word
 class WordSense(BaseModel):
@@ -50,11 +51,14 @@ class LLMEngine:
         )
 
         result_str = response["choices"][0]["message"]["content"]
+        clean_json = extract_json_string(result_str)
+        parsed_dict = json.loads(clean_json, strict=False)
 
         try:
-            return VocabCard.model_validate_json(result_str)
+            return VocabCard.model_validate(parsed_dict)
         except Exception as e:
             print(f"[System] JSON Validation failed: {e}")
+            print(f"[System] Raw output: {result_str}")
             return None
 
 # For testing
