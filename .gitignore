@@ -3,3 +3,4 @@ models/
 __pycache__/
 *.db
 log_*.txt
+tests/eval_report.md
