@@ -1,56 +1,49 @@
 # Edge-Native Vocab Tutor
 
-This project is built as a practical showcase of the concepts and architectures learned from the [ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch) course. It is an edge-native, local-inference language learning backend designed to overcome the latency, cost, and structured output limitations of cloud-based LLMs.
+This project is built as a practical showcase of the concepts and architectures learned from the [ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch) course. It is an edge-native, local-inference language learning backend designed to overcome the latency, cost, structured output limitations, and privacy risks of cloud-based LLMs.
 
 ## Table of Contents
-
 - [Introduction: The Problem & The Solution](#introduction-the-problem--the-solution)
-- [Key Problems Solved (Applied Learnings)](#key-problems-solved-applied-learnings)
+- [Key Architectural Implementations](#key-architectural-implementations)
 - [Tech Stack & Architecture](#tech-stack--architecture)
 - [Project Structure](#project-structure)
 - [Installation & Setup](#installation--setup)
 - [Running the Application](#running-the-application)
-- [API Endpoints Overview](#api-endpoints-overview)
-- [Known Limitations (Scope of MVP)](#known-limitations-scope-of-mvp)
+- [Evaluation & Trade-offs](EVALUATION.md) *(See detailed ML metrics)*
 
 ## Introduction: The Problem & The Solution
 
-**1. Context & Challenges**:
-While preparing for advanced English proficiency exams (GRE, TOEFL), I found that building a personalized vocabulary database is an extremely tedious process. It requires looking up context-specific definitions, example sentences, and derivatives, while being mindful of semantic nuances in translation. Although cloud-based LLMs (e.g., ChatGPT) can assist, they present three critical issues:
-*   **Cost & Dependency**: Complete reliance on internet connectivity and recurring API token costs.
-*   **Lack of Semantic Architecture**: Chat-based UIs lack automated mechanisms (like Vector Embeddings) to dynamically cluster personal vocabulary based on semantic similarity.
-*   **Unstructured Output**: Pure conversational prompts struggle to provide the strict, structured data required for a programmatic learning loop (e.g., automated quiz generation).
+**1. Context & Challenges**
+Building a personalized vocabulary database for advanced English proficiency exams (e.g., GRE, TOEFL) is highly tedious. While cloud-based LLMs (e.g., ChatGPT) can assist, they introduce critical engineering and privacy issues:
+*   **Cost & Privacy**: Complete reliance on external APIs incurs recurring token costs and exposes user data to the cloud.
+*   **Lack of Semantic Architecture**: Traditional chat UIs lack automated mechanisms (e.g., Vector Embeddings) to dynamically cluster personal vocabulary based on semantic similarity.
+*   **Unstructured Output**: Conversational prompts struggle to provide the strict, structured JSON required for programmatic learning loops.
 
-**2. The Quantitative Reality**:
-In traditional software like Anki or Quizlet, manually creating a high-quality flashcard—complete with synonyms, derived sentences, and custom quizzes—takes an average of 3 to 5 minutes. Building a foundational GRE deck of 1,000 words demands over 50 hours of pure manual labor. While public decks exist, they lack the personalization crucial for effective learning. Conversely, automating this via cloud APIs incurs constant network latency (~2-3 seconds per request) and perpetual billing.
+**2. The Impact (Solution)**
+To resolve this, I engineered a **fully offline, Edge-Native LLM Learning System**. By leveraging 4-bit model quantization (GGUF), the system successfully deploys an 8B-parameter model locally with a minimal VRAM footprint (~5GB). Combined with **Structured Outputs (Pydantic)** and an **in-memory Vector Store (Cosine Similarity)**, it guarantees stable, personalized vocabulary clustering and quiz generation—achieving zero API costs, zero network dependency, and complete data privacy.
 
-**3. Why It's Worth Solving (The Impact)**:
-To solve this, I implemented a **fully offline, Edge-Native LLM Learning System**, bridging my real-world needs with my learnings from the course. By leveraging model quantization (GGUF, 4-bit), the system successfully deploys an 8B-parameter model locally on a standard laptop. Combined with **Structured Outputs (Pydantic)** and an **in-memory Vector Store (Cosine Similarity)**, it guarantees stable, personalized vocabulary clustering and quiz generation—achieving zero API costs, zero network latency, and complete data privacy.
-
-## Key Problems Solved (Applied Learnings)
-
-This project translates the theoretical and architectural concepts from the `ai-engineering-from-scratch` curriculum into practical engineering solutions:
+## Key Architectural Implementations
 
 1. **Edge Inference & Model Quantization (Phase 17)**:
-   To overcome hardware limitations and eliminate API costs, the system utilizes a 4-bit quantized GGUF model (`Llama-3-8B-Instruct-Q4_K_M`). This enables offline, low-latency execution on consumer hardware while ensuring 100% data privacy.
-2. **Structured Outputs & Constrained Decoding (Phase 11)**:
-   Cloud LLMs natively struggle with consistent JSON formatting. By integrating Pydantic schemas with the constrained decoding capabilities of `llama-cpp-python`, the system guarantees strictly typed JSON responses, preventing downstream parsing failures.
+   Deployed `Llama-3-8B-Instruct-Q4_K_M` to execute on consumer hardware. The 4-bit quantization effectively reduces memory footprint while maintaining reasoning integrity.
+2. **Robust Parsing & Constrained Decoding (Phase 11)**:
+   Initial stress tests showed a 23% JSON parsing failure rate due to uncontrolled markdown generation by the 8B model. Implemented regex-based JSON extraction and relaxed parsing (`strict=False`) to elevate API response stability to **100%**.
 3. **Embeddings & Semantic Clustering (Phase 11)**:
-   Addressing the "vocabulary mismatch" problem in traditional tag-based categorization. The system implements a lightweight in-memory vector store (SQLite + `SentenceTransformers`) and calculates Cosine Similarity to dynamically cluster semantically related words.
-4. **Prompt Engineering & Input Sanitization (Phase 11)**:
-   To prevent delimiter collision and prompt injection attacks from user-provided sentences, the system employs **XML tag sandboxing** (e.g., `<user_sentence>`). Combined with precise Role Prompting and Negative Constraints, it successfully anchors the model's behavior to an objective evaluator persona.
-5. **Chain-of-Thought (CoT) Evaluator (Phase 11)**:
-   Small Language Models (SLMs) are prone to hallucinated over-corrections during assessment. The evaluation endpoint enforces a CoT pipeline, compelling the model to explicitly output `reasoning` steps prior to rendering a final boolean judgment, drastically improving grading accuracy.
+   Resolved the "vocabulary mismatch" problem by building an in-memory vector store (SQLite + `SentenceTransformers`). Computes Cosine Similarity dynamically to aggregate semantically related vocabulary without relying on heavy external vector databases.
+4. **Input Sanitization & XML Sandboxing (Phase 11)**:
+   Migrated from traditional quote delimiters to **XML tag sandboxing** (e.g., `<user_sentence>`). This effectively sanitizes user inputs, preventing delimiter collisions and mitigating Prompt Injection attacks.
+5. **Multi-Turn Few-Shot CoT Evaluator (Phase 11)**:
+   Mitigated the SLM's (Small Language Model) tendency to hallucinate non-existent grammatical errors by evolving the prompt from Zero-Shot to **Few-Shot Chain-of-Thought**. For details on error rate reduction (False Positive/Negative), refer to the [Evaluation Report](EVALUATION.md).
 
 ## Tech Stack & Architecture
 
-* **LLM Engine**: `llama-cpp-python`
+* **LLM Engine**: `llama-cpp-python` (C++ backend for optimized CPU/GPU edge inference)
 * **Model**: `Meta-Llama-3-8B-Instruct-Q4_K_M.gguf` (4-bit Quantization)
 * **Structured Data Validation**: `Pydantic`
 * **Embedding Model**: `SentenceTransformers` (`all-MiniLM-L6-v2`)
-* **Vector Storage & Retrieval**: `SQLite3` + `NumPy` (In-memory Cosine Similarity computation)
-* **Backend API**: `FastAPI` + `Uvicorn` (Asynchronous REST API)
-* **Frontend Visualization**: `Streamlit`
+* **Vector Storage**: `SQLite3` + `NumPy` (In-memory Cosine Similarity)
+* **Backend API**: `FastAPI` + `Uvicorn` (Asynchronous REST API with Mutex Lock for VRAM protection)
+* **Frontend UI**: `Streamlit`
 
 ## Project Structure
 
@@ -59,27 +52,30 @@ edge-vocab-tutor/
 ├── models/                 # Directory for downloaded models
 ├── src/
 │   ├── api/
-│   │   └── main.py         # FastAPI application
+│   │   └── main.py         # FastAPI application entry point
 │   ├── db/
-│   │   └── database.py     # Cosine similarity logic
+│   │   └── database.py     # Cosine similarity logic & DB
 │   └── llm/
 │       ├── generator.py    # Structured output generation
-│       └── quiz.py         # CoT Sentence Evaluator
-├── requirements.txt        # Project dependencies
+│       └── quiz.py         # Few-shot CoT Sentence Evaluator
+├── tests/
+│   ├── eval_dataset.json   # Golden dataset for evaluation
+│   ├── run_eval.py         # Automated FP/FN metric script
+│   └── test_load.py        # End-to-end API stress test
+├── requirements.txt
 ├── .gitignore
+├── EVALUATION.md           # Model performance and analysis
 └── README.md
 ```
 
 ## Installation & Setup
 
 **1. Prerequisites**
-
 * Python 3.10+
 * `uv` package manager (recommended)
-* Git, wget, build-essential (for WSL/Ubuntu)
+* Git, wget, build-essential (for WSL/Ubuntu environments)
 
-**2. Clone the repository & Install dependencies**
-
+**2. Clone and Install**
 ```bash
 git clone https://github.com/yourusername/edge-vocab-tutor.git
 cd edge-vocab-tutor
@@ -87,10 +83,9 @@ uv venv
 source .venv/bin/activate
 uv pip install -r requirements.txt
 ```
-*(Note: To enable GPU acceleration on NVIDIA devices, install `llama-cpp-python` with `CMAKE_ARGS="-DGGML_CUDA=on"`)*
+*(Note: To enable GPU acceleration on NVIDIA devices, use `CMAKE_ARGS="-DGGML_CUDA=on"` during `llama-cpp-python` installation)*
 
 **3. Download the Quantized Model**
-
 ```bash
 mkdir models
 hf download lmstudio-community/Meta-Llama-3-8B-Instruct-GGUF Meta-Llama-3-8B-Instruct-Q4_K_M.gguf --local-dir ./models
@@ -98,32 +93,14 @@ hf download lmstudio-community/Meta-Llama-3-8B-Instruct-GGUF Meta-Llama-3-8B-Ins
 
 ## Running the Application
 
-This system is decoupled into a backend API and a frontend dashboard.
-
 **1. Start the FastAPI Backend**
-
-Run the ASGI server to load the models into memory (loads as a singleton to prevent OOM errors):
-
 ```bash
 uvicorn src.api.main:app --reload
 ```
-API Documentation (Swagger UI) will be available at: `http://127.0.0.1:8000/docs`
+*Swagger UI available at: `http://127.0.0.1:8000/docs`*
 
 **2. Start the Streamlit Frontend (In a separate terminal)**
-
 ```bash
 source .venv/bin/activate
 streamlit run src/ui/app.py
 ```
-The interactive dashboard will automatically open in your default browser.
-
-## API Endpoints Overview
-
-* `POST /api/generate`: Accepts a target word and context, generates a detailed vocabulary card (CEFR, Senses, Synonyms, Antonyms) in strictly typed JSON.
-* `GET /api/similar/{word}`: Retrieves the top 5 most semantically similar words stored in the local SQLite database.
-* `POST /api/evaluate`: Accepts a user-generated sentence, runs a CoT prompt, and returns structured feedback.
-
-## Known Limitations (Scope of MVP)
-
-* **Model Constraints**: Relying on an 8B quantized model may lead to over-correction in complex linguistic edge cases during sentence evaluation.
-* **Vector Store Scalability**: Vector similarity is computed in-memory via NumPy. This is highly efficient for vocabulary sets (< 10,000 items) but would require transitioning to an HNSW-based database (e.g., Qdrant or Milvus) if scaled to million-document enterprise retrieval.
