@@ -21,7 +21,7 @@ class QuizEngine:
         safe_def = sanitize_input(definition)
         safe_sentence = sanitize_input(user_sentence)
 
-        # Prompt Engineering: use XML to isolate all labels
+        # Prompt Engineering: use XML to isolate all labels (now discarded)
         prompt = (
             "Evaluate if the user's sentence uses the target word correctly in terms of semantics, collocation, and grammar.\n"
             "Think step-by-step in the 'reasoning' field before providing the final boolean judgment and feedback.\n\n"
@@ -34,14 +34,24 @@ class QuizEngine:
 
         response = self.llm.create_chat_completion(
             messages=[
-                {"role": "system", "content": "You are a strict and professional GRE linguistic tutor. You demand precise vocabulary usage."},
-                {"role": "user", "content": prompt}
+                {"role": "system", "content": "You are extremely strict GRE-level English linguistic judge. You strictly evaluate vocabulary usage based on definition, part of speech, and logic. Especially the part of speech. Output strictly in the requested JSON format."},
+
+                # Case 1：Part Of Speech Mistaken (False Negative Defense)
+                {"role": "user", "content": "<target_word>\nmitigate\n</target_word>\n<target_definition>\nMake a situation less severe\n</target_definition>\n<user_sentence>\nHe felt very mitigate after passing the exam.\n</user_sentence>"},
+                {"role": "assistant", "content": '{"reasoning": "The word \'mitigate\' is a verb, but it is incorrectly used here as an adjective. This is a fatal grammatical error.", "is_appropriate": false, "feedback": "You used \'mitigate\' as an adjective, but it is a verb. A correct sentence would be: \'Nothing could mitigate his anxiety.\'"}'},
+
+                # Case 2：Logic Paradox (False Negative Defense)
+                {"role": "user", "content": "<target_word>\nalleviate\n</target_word>\n<target_definition>\nMake a problem less severe\n</target_definition>\n<user_sentence>\nDrinking large amounts of seawater will alleviate your thirst when you are lost at sea.\n</user_sentence>"},
+                {"role": "assistant", "content": '{"reasoning": "Grammatically correct, but logically contradictory. Seawater exacerbates thirst rather than alleviating it, violating basic semantic logic.", "is_appropriate": false, "feedback": "Your sentence contains a logical contradiction. Seawater does not alleviate thirst. Consider replacing \'seawater\' with \'fresh water\'."}'},
+
+                # True Task
+                {"role": "user", "content": f"<target_word>\n{safe_word}\n</target_word>\n<target_definition>\n{safe_def}\n</target_definition>\n<user_sentence>\n{safe_sentence}\n</user_sentence>"}
             ],
             response_format={
                 "type": "json_object",
                 "schema": self.schema,
             },
-            temperature=0.1,
+            temperature=0.0,
             max_tokens=-1,
             stop=["<|eot_id|>"]
         )
