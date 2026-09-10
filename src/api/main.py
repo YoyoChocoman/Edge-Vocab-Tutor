@@ -1,5 +1,6 @@
 import asyncio
 import gc
+import time
 from fastapi import FastAPI, HTTPException, status
 from pydantic import BaseModel
 from contextlib import asynccontextmanager
@@ -108,7 +109,12 @@ async def get_similar(word: str, top_k: int = 5):
 @app.post("/api/evaluate", response_model=SentenceEvaluation)
 async def evaluate_sentence(request: EvalRequest):
     """Inspect and correct the user's sentence (with Mutex Lock)"""
+    t_request_start = time.perf_counter()
+
     async with llm_lock:
+        t_lock_acquired = time.perf_counter()
+        queue_latency = t_lock_acquired - t_request_start
+
         try:
             eval_result = await asyncio.to_thread(
                 quiz_engine.evaluate_sentence,
@@ -116,6 +122,10 @@ async def evaluate_sentence(request: EvalRequest):
                 request.definition,
                 request.user_sentence
             )
+
+            t_request_end = time.perf_counter()
+            e2e_latency = t_request_end - t_request_start
+            print(f"[Profiler - API Tier] E2E Latency: {e2e_latency:.4f}s | Queue Time: {queue_latency:.4f}s")
 
             if not eval_result:
                 raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="LLM evaluation failed or returned invalid JSON.")

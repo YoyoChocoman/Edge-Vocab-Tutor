@@ -1,4 +1,5 @@
 import json
+import time
 from llama_cpp import Llama
 from pydantic import BaseModel, Field
 
@@ -31,8 +32,7 @@ class QuizEngine:
         )
 
         print(f"[System] Sending sentence to LLM for evaluation...")
-
-        response = self.llm.create_chat_completion(
+        response_stream = self.llm.create_chat_completion(
             messages=[
                 {"role": "system", "content": "You are extremely strict GRE-level English linguistic judge. You strictly evaluate vocabulary usage based on definition, part of speech, and logic. Especially the part of speech. Output strictly in the requested JSON format."},
 
@@ -53,18 +53,51 @@ class QuizEngine:
             },
             temperature=0.0,
             max_tokens=-1,
-            stop=["<|eot_id|>"]
+            stop=["<|eot_id|>"],
+            stream=True
         )
 
-        result_str = response["choices"][0]["message"]["content"]
-        clean_json = extract_json_string(result_str)
-        parsed_dict = json.loads(clean_json, strict=False)
+        result_str = ""
+        output_tokens = 0
+        t_first_token = None
+        t_last_token = None
+
+        t_llm_start = time.perf_counter()
+
+        for chunk in response_stream:
+                delta = chunk["choices"][0].get("delta", {})
+                content = delta.get("content", "")
+                if content:
+                    current_time = time.perf_counter()
+
+                    if t_first_token is None:
+                        t_first_token = current_time
+
+                    t_last_token = current_time
+                    result_str += content
+                    output_tokens += 1
+
+        # more detailed derived metrics
+        if t_first_token is not None:
+            ttft = t_first_token - t_llm_start
+            decode_time = t_last_token - t_first_token
+            tpot = decode_time / (output_tokens - 1) if output_tokens > 1 else 0.0
+
+            print(f"[Profiler - LLM Tier] "
+                    f"TTFT: {ttft*1000:.2f}ms | "
+                    f"Decode Time: {decode_time:.4f}s | "
+                    f"Tokens: {output_tokens} | "
+                    f"TPOT: {tpot*1000:.2f}ms/token")
+        else:
+            print("[Profiler - LLM Tier] No content generated.")
+
+        clean_json_str = extract_json_string(result_str)
 
         try:
+            parsed_dict = json.loads(clean_json_str, strict=False)
             return SentenceEvaluation.model_validate(parsed_dict)
         except Exception as e:
-            print(f"[System] Evaluation parsing failed: {e}")
-            print(f"[System] Raw output: {result_str}")
+            print(f"[System] Evaluation parsing failed: {e}\nRaw output: {result_str}")
             return None
 
 # For Test
