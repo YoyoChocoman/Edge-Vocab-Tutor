@@ -58,9 +58,9 @@ class QuizEngine:
         )
 
         result_str = ""
-        output_tokens = 0
-        t_first_token = None
-        t_last_token = None
+        chunk_count = 0
+        t_first_content = None
+        t_last_content = None
 
         t_llm_start = time.perf_counter()
 
@@ -70,24 +70,29 @@ class QuizEngine:
                 if content:
                     current_time = time.perf_counter()
 
-                    if t_first_token is None:
-                        t_first_token = current_time
+                    if t_first_content is None:
+                        t_first_content = current_time
 
-                    t_last_token = current_time
+                    t_last_content = current_time
                     result_str += content
-                    output_tokens += 1
+                    chunk_count += 1
 
         # more detailed derived metrics
-        if t_first_token is not None:
-            ttft = t_first_token - t_llm_start
-            decode_time = t_last_token - t_first_token
-            tpot = decode_time / (output_tokens - 1) if output_tokens > 1 else 0.0
+        if t_first_content is not None:
+            true_output_tokens = len(self.llm.tokenize(result_str.encode('utf-8')))
+
+            ttft = t_first_content - t_llm_start
+            decode_time = t_last_content - t_first_content
+
+            tpot = decode_time / (chunk_count - 1) if chunk_count > 1 else None
+            tpot_display = f"{tpot*1000:.2f}ms/token" if tpot is not None else "N/A"
 
             print(f"[Profiler - LLM Tier] "
-                    f"TTFT: {ttft*1000:.2f}ms | "
-                    f"Decode Time: {decode_time:.4f}s | "
-                    f"Tokens: {output_tokens} | "
-                    f"TPOT: {tpot*1000:.2f}ms/token")
+                  f"TTFT: {ttft*1000:.2f}ms | "
+                  f"Decode: {decode_time:.4f}s | "
+                  f"Chunks: {chunk_count} | "
+                  f"Tokens: {true_output_tokens} | "
+                  f"TPOT: {tpot_display}")
         else:
             print("[Profiler - LLM Tier] No content generated.")
 
