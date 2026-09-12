@@ -84,7 +84,7 @@ class QuizEngine:
             ttft = t_first_content - t_llm_start
             decode_time = t_last_content - t_first_content
 
-            tpot = decode_time / (chunk_count - 1) if chunk_count > 1 else None
+            tpot = decode_time / (true_output_tokens - 1) if chunk_count > 1 else None
             tpot_display = f"{tpot*1000:.2f}ms/token" if tpot is not None else "N/A"
 
             print(f"[Profiler - LLM Tier] "

@@ -1,0 +1,136 @@
+{
+  "metadata": {
+    "experiment_id": "exp_api_baseline",
+    "tags": ["baseline", "sequential", "api-level", "llama-3-8b-q4"],
+    "timestamp": "2026-09-12",
+    "hardware": {
+      "gpu": "NVIDIA GeForce RTX 5070 Ti",
+      "vram_usage_mib": 5131
+    },
+    "model": {
+      "name": "Meta-Llama-3-8B-Instruct-Q4_K_M.gguf",
+      "quantization": "Q4_K_M"
+    }
+  },
+  "workload": {
+    "target_endpoint": "/api/evaluate",
+    "concurrency": 1,
+    "iterations": 10,
+    "prompt_type": "Static Few-Shot CoT"
+  },
+  "raw_runs": [
+    {
+      "run_id": 1,
+      "is_cold_start": true,
+      "queue_ms": 0,
+      "ttft_ms": 491.99,
+      "decode_duration_ms": 1442.23,
+      "output_tokens": 80,
+      "tpot_ms": 18.26,
+      "e2e_ms": 1952.1
+    },
+    {
+      "run_id": 2,
+      "is_cold_start": false,
+      "queue_ms": 0,
+      "ttft_ms": 13.93,
+      "decode_duration_ms": 1386.1,
+      "output_tokens": 80,
+      "tpot_ms": 17.55,
+      "e2e_ms": 1417.7
+    },
+    {
+      "run_id": 3,
+      "is_cold_start": false,
+      "queue_ms": 0,
+      "ttft_ms": 14.25,
+      "decode_duration_ms": 1340.8,
+      "output_tokens": 80,
+      "tpot_ms": 16.97,
+      "e2e_ms": 1371.0
+    },
+    {
+      "run_id": 4,
+      "is_cold_start": false,
+      "queue_ms": 0,
+      "ttft_ms": 13.36,
+      "decode_duration_ms": 1369.3,
+      "output_tokens": 80,
+      "tpot_ms": 17.33,
+      "e2e_ms": 1399.4
+    },
+    {
+      "run_id": 5,
+      "is_cold_start": false,
+      "queue_ms": 0,
+      "ttft_ms": 13.49,
+      "decode_duration_ms": 1374.0,
+      "output_tokens": 80,
+      "tpot_ms": 17.39,
+      "e2e_ms": 1404.4
+    },
+    {
+      "run_id": 6,
+      "is_cold_start": false,
+      "queue_ms": 0,
+      "ttft_ms": 14.46,
+      "decode_duration_ms": 1388.6,
+      "output_tokens": 80,
+      "tpot_ms": 17.58,
+      "e2e_ms": 1420.1
+    },
+    {
+      "run_id": 7,
+      "is_cold_start": false,
+      "queue_ms": 0,
+      "ttft_ms": 13.83,
+      "decode_duration_ms": 1394.5,
+      "output_tokens": 80,
+      "tpot_ms": 17.65,
+      "e2e_ms": 1424.8
+    },
+    {
+      "run_id": 8,
+      "is_cold_start": false,
+      "queue_ms": 0,
+      "ttft_ms": 14.25,
+      "decode_duration_ms": 1373.3,
+      "output_tokens": 80,
+      "tpot_ms": 17.38,
+      "e2e_ms": 1403.4
+    },
+    {
+      "run_id": 9,
+      "is_cold_start": false,
+      "queue_ms": 0,
+      "ttft_ms": 13.91,
+      "decode_duration_ms": 1300.0,
+      "output_tokens": 80,
+      "tpot_ms": 16.46,
+      "e2e_ms": 1329.1
+    },
+    {
+      "run_id": 10,
+      "is_cold_start": false,
+      "queue_ms": 0,
+      "ttft_ms": 12.97,
+      "decode_duration_ms": 1302.8,
+      "output_tokens": 80,
+      "tpot_ms": 16.49,
+      "e2e_ms": 1330.9
+    }
+  ],
+  "metrics_summary": {
+    "e2e_latency": {
+      "mean_ms": 1445.29,
+      "p50_ms": 1403.90,
+      "p95_ms": 1714.82
+    },
+    "llm_inference": {
+      "mean_ttft_ms": 61.64,
+      "warm_mean_ttft_ms": 13.83,
+      "mean_tpot_ms": 17.31,
+      "mean_output_tokens": 80
+    }
+  }
+}
