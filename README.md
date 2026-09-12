@@ -1,106 +1,86 @@
-# Edge-Native Vocab Tutor
+# Edge-LLM-Research
 
-This project is built as a practical showcase of the concepts and architectures learned from the [ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch) course. It is an edge-native, local-inference language learning backend designed to overcome the latency, cost, structured output limitations, and privacy risks of cloud-based LLMs.
+> **Research Status:** Exploratory / Baseline Characterization
+>
+> The research direction is currently exploratory. Multiple
+> systems-level directions, including inference optimization,
+> retrieval, and resource-aware execution, are being investigated.
+> No final research method has been selected yet.
 
-## Table of Contents
-- [Introduction: The Problem & The Solution](#introduction-the-problem--the-solution)
-- [Key Architectural Implementations](#key-architectural-implementations)
-- [Tech Stack & Architecture](#tech-stack--architecture)
-- [Project Structure](#project-structure)
-- [Installation & Setup](#installation--setup)
-- [Running the Application](#running-the-application)
-- [Evaluation & Trade-offs](EVALUATION.md) *(See detailed ML metrics)*
 
-## Introduction: The Problem & The Solution
+An empirical systems research project investigating the inference characteristics and bottlenecks of LLMs deployed in resource-constrained local environments.
 
-**1. Context & Challenges**
-Building a personalized vocabulary database for advanced English proficiency exams (e.g., GRE, TOEFL) is highly tedious. While cloud-based LLMs (e.g., ChatGPT) can assist, they introduce critical engineering and privacy issues:
-*   **Cost & Privacy**: Complete reliance on external APIs incurs recurring token costs and exposes user data to the cloud.
-*   **Lack of Semantic Architecture**: Traditional chat UIs lack automated mechanisms (e.g., Vector Embeddings) to dynamically cluster personal vocabulary based on semantic similarity.
-*   **Unstructured Output**: Conversational prompts struggle to provide the strict, structured JSON required for programmatic learning loops.
+## 1. Project Paradigm & Methodology
 
-**2. The Impact (Solution)**
-To resolve this, I engineered a **fully offline, Edge-Native LLM Learning System**. By leveraging 4-bit model quantization (GGUF), the system successfully deploys an 8B-parameter model locally with a minimal VRAM footprint (~5GB). Combined with **Structured Outputs (Pydantic)** and an **in-memory Vector Store (Cosine Similarity)**, it guarantees stable, personalized vocabulary clustering and quiz generation—achieving zero API costs, zero network dependency, and complete data privacy.
+This repository originated as an MVP for a local-inference vocabulary tutor. It has since evolved into an **experimental research project**.
 
-## Key Architectural Implementations
+Instead of treating the LLM as a generic black-box API, this project utilizes the vocabulary tutoring application (which involves constrained decoding, RAG, and structured outputs) as a **stable, realistic application workload**. By constraining the model's output variability (achieving 100% JSON parsing success), we establish a more controlled and reproducible workload for evaluating underlying system performance—such as Time-to-First-Token (TTFT), Time-Per-Output-Token (TPOT), and Queueing Latency.
 
-1. **Edge Inference & Model Quantization (Phase 17)**:
-   Deployed `Llama-3-8B-Instruct-Q4_K_M` to execute on consumer hardware. The 4-bit quantization effectively reduces memory footprint while maintaining reasoning integrity.
-2. **Robust Parsing & Constrained Decoding (Phase 11)**:
-   Initial stress tests showed a 23% JSON parsing failure rate due to uncontrolled markdown generation by the 8B model. Implemented regex-based JSON extraction and relaxed parsing (`strict=False`) to elevate API response stability to **100%**.
-3. **Embeddings & Semantic Clustering (Phase 11)**:
-   Resolved the "vocabulary mismatch" problem by building an in-memory vector store (SQLite + `SentenceTransformers`). Computes Cosine Similarity dynamically to aggregate semantically related vocabulary without relying on heavy external vector databases.
-4. **Input Sanitization & XML Sandboxing (Phase 11)**:
-   Migrated from traditional quote delimiters to **XML tag sandboxing** (e.g., `<user_sentence>`). This effectively sanitizes user inputs, preventing delimiter collisions and mitigating Prompt Injection attacks.
-5. **Multi-Turn Few-Shot CoT Evaluator (Phase 11)**:
-   Mitigated the SLM's (Small Language Model) tendency to hallucinate non-existent grammatical errors by evolving the prompt from Zero-Shot to **Few-Shot Chain-of-Thought**. For details on error rate reduction (False Positive/Negative), refer to the [Evaluation Report](EVALUATION.md).
+## 2. Repository Architecture
 
-## Tech Stack & Architecture
-
-* **LLM Engine**: `llama-cpp-python` (C++ backend for optimized CPU/GPU edge inference)
-* **Model**: `Meta-Llama-3-8B-Instruct-Q4_K_M.gguf` (4-bit Quantization)
-* **Structured Data Validation**: `Pydantic`
-* **Embedding Model**: `SentenceTransformers` (`all-MiniLM-L6-v2`)
-* **Vector Storage**: `SQLite3` + `NumPy` (In-memory Cosine Similarity)
-* **Backend API**: `FastAPI` + `Uvicorn` (Asynchronous REST API with Mutex Lock for VRAM protection)
-* **Frontend UI**: `Streamlit`
-
-## Project Structure
+The repository strictly separates the application workload from the experimental instrumentation and future research methods:
 
 ```text
-edge-vocab-tutor/
-├── models/                 # Directory for downloaded models
-├── src/
-│   ├── api/
-│   │   └── main.py         # FastAPI application entry point
-│   ├── db/
-│   │   └── database.py     # Cosine similarity logic & DB
-│   └── llm/
-│       ├── generator.py    # Structured output generation
-│       └── quiz.py         # Few-shot CoT Sentence Evaluator
-├── tests/
-│   ├── eval_dataset.json   # Golden dataset for evaluation
-│   ├── run_eval.py         # Automated FP/FN metric script
-│   └── test_load.py        # End-to-end API stress test
-├── requirements.txt
-├── .gitignore
-├── EVALUATION.md           # Model performance and analysis
-└── README.md
+.
+├── src/                    # The Application Workload (FastAPI, SQLite, Llama.cpp)
+│   ├── api/                # HTTP layer and concurrency control (Mutex locks)
+│   ├── db/                 # Vector retrieval and persistent storage
+│   └── llm/                # Structured output generation and CoT prompting
+├── experiments/            # Core Systems Research & Profiling
+│   ├── baseline/           # Foundation metrics (E2E latency, Success rates)
+│   └── output_length/      # Active: Linear characterization of TPOT vs. Output Tokens
+├── methods/                # (Planned) Future implementations of routing, caching, or optimization algorithms
+├── docs/                   # Documentation and historical artifacts
+│   ├── BASELINE.md         # Baseline system metrics summary
+│   └── MVP_EVALUATION.md   # Record of prompt tuning used to stabilize the workload output
+├── tests/                  # Legacy MVP evaluation and testing scripts
+└── requirements.txt
 ```
 
-## Installation & Setup
+## 3. Current Experiments
 
-**1. Prerequisites**
-* Python 3.10+
-* `uv` package manager (recommended)
-* Git, wget, build-essential (for WSL/Ubuntu environments)
+The research phase is actively ongoing in the `experiments/` directory.
 
-**2. Clone and Install**
+### 3.1. Workload Stabilization & Baseline (`docs/MVP_EVALUATION.md` & `experiments/baseline`)
+Before profiling the system, the application workload was stabilized. Multi-turn Few-Shot CoT prompting and regex-based robust parsing were implemented to achieve a 100% JSON parse success rate. This ensures output length predictability. A baseline was then established for application-level E2E latency and basic queuing behavior on consumer hardware (RTX 5070 Ti, 16GB VRAM).
+
+### 3.2. Output Length Scaling (`experiments/output_length`) - *Active*
+A controlled one-factor-at-a-time (OFAT) experiment examining the relationship between actual output length and decoding latency.
+Current observations show that decode time exhibits a strong linear relationship with output length, while TPOT shows a positive but weaker trend.
+
+
+## 4. Environment Setup & Reproducibility
+
+**Prerequisites:**
+- Python 3.10+
+- `uv` package manager
+
+**Installation:**
 ```bash
-git clone https://github.com/yourusername/edge-vocab-tutor.git
-cd edge-vocab-tutor
+git clone https://github.com/yourusername/Edge-LLM-Research.git
+cd Edge-LLM-Research
 uv venv
 source .venv/bin/activate
 uv pip install -r requirements.txt
-```
-*(Note: To enable GPU acceleration on NVIDIA devices, use `CMAKE_ARGS="-DGGML_CUDA=on"` during `llama-cpp-python` installation)*
 
-**3. Download the Quantized Model**
+# Note: For NVIDIA GPU acceleration, compile llama-cpp-python with CUDA:
+# CMAKE_ARGS="-DGGML_CUDA=on" uv pip install llama-cpp-python
+```
+
+**Model Acquisition:**
+The current experiments are standardized on Llama-3-8B (Q4_K_M).
 ```bash
 mkdir models
 hf download lmstudio-community/Meta-Llama-3-8B-Instruct-GGUF Meta-Llama-3-8B-Instruct-Q4_K_M.gguf --local-dir ./models
 ```
 
-## Running the Application
+## 5. Running Experiments
 
-**1. Start the FastAPI Backend**
+To execute the current active benchmark (Output Length Characterization):
 ```bash
-uvicorn src.api.main:app --reload
-```
-*Swagger UI available at: `http://127.0.0.1:8000/docs`*
+# Run the benchmark script to generate raw JSON data
+python experiments/output_length/output_length.py
 
-**2. Start the Streamlit Frontend (In a separate terminal)**
-```bash
-source .venv/bin/activate
-streamlit run src/ui/app.py
+# Generate statistical plots and linear regression analysis (requires matplotlib, numpy)
+python experiments/output_length/plot_output_length.py results/profiling/YOUR_RESULT_FILE.json
 ```
