@@ -1,5 +1,7 @@
 # 系統評估與工程妥協
 
+> **歷史紀錄**：本文件記錄了初期 MVP 開發階段所進行的評估結果與工程迭代。此內容僅作為歷史紀錄保存，不屬於目前研究的基準線（Baseline）。
+
 為避免流於主觀的「體感 (Vibes-based)」工程調整，本專案建置了自動化評估管線 (Evaluation Pipeline)，用以客觀量測 Edge-Native 8B 模型的推論表現。
 
 ## 黃金測試集組成 (Dataset Composition)

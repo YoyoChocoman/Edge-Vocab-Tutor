@@ -4,3 +4,4 @@ __pycache__/
 *.db
 log_*.txt
 tests/eval_report*.md
+generate_report.py

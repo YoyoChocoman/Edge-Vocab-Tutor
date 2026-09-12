@@ -1,5 +1,8 @@
 # Evaluation & Engineering Trade-offs
 
+> **Historical Note**: This document records the evaluation results and engineering iterations conducted during the initial MVP development phase.
+> It is preserved as a historical record and is not part of the current research baseline.
+
 To avoid subjective "vibes-based" engineering, an automated evaluation pipeline was built to measure the performance of the edge-native 8B model.
 
 A golden dataset (`tests/eval_dataset.json`) consisting of 100 edge cases—including valid usages, metaphorical expansions, part-of-speech misuses, semantic contradictions, prompt injections, and gibberish—was utilized to track the system's capabilities.
