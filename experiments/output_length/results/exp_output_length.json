@@ -1,0 +1,2409 @@
+{
+  "metadata": {
+    "experiment": "LLM Output Length Characterization",
+    "model": "Llama-3-8B-Instruct-Q4_K_M",
+    "prompt_length_approx": 61
+  },
+  "raw_runs": [
+    {
+      "run_idx": 1,
+      "max_tokens_setting": 25,
+      "actual_tokens": 29,
+      "chunk_count": 25,
+      "ttft_ms": 8.72,
+      "decode_ms": 170.77,
+      "tpot_ms": 6.1,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 2,
+      "max_tokens_setting": 25,
+      "actual_tokens": 29,
+      "chunk_count": 25,
+      "ttft_ms": 8.84,
+      "decode_ms": 171.1,
+      "tpot_ms": 6.11,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 3,
+      "max_tokens_setting": 25,
+      "actual_tokens": 29,
+      "chunk_count": 25,
+      "ttft_ms": 8.37,
+      "decode_ms": 170.34,
+      "tpot_ms": 6.08,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 4,
+      "max_tokens_setting": 25,
+      "actual_tokens": 29,
+      "chunk_count": 25,
+      "ttft_ms": 8.56,
+      "decode_ms": 169.92,
+      "tpot_ms": 6.07,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 5,
+      "max_tokens_setting": 25,
+      "actual_tokens": 29,
+      "chunk_count": 25,
+      "ttft_ms": 8.47,
+      "decode_ms": 171.19,
+      "tpot_ms": 6.11,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 6,
+      "max_tokens_setting": 25,
+      "actual_tokens": 29,
+      "chunk_count": 25,
+      "ttft_ms": 8.5,
+      "decode_ms": 171.01,
+      "tpot_ms": 6.11,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 7,
+      "max_tokens_setting": 25,
+      "actual_tokens": 29,
+      "chunk_count": 25,
+      "ttft_ms": 8.47,
+      "decode_ms": 171.4,
+      "tpot_ms": 6.12,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 8,
+      "max_tokens_setting": 25,
+      "actual_tokens": 29,
+      "chunk_count": 25,
+      "ttft_ms": 8.06,
+      "decode_ms": 171.94,
+      "tpot_ms": 6.14,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 9,
+      "max_tokens_setting": 25,
+      "actual_tokens": 29,
+      "chunk_count": 25,
+      "ttft_ms": 8.36,
+      "decode_ms": 170.82,
+      "tpot_ms": 6.1,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 10,
+      "max_tokens_setting": 25,
+      "actual_tokens": 29,
+      "chunk_count": 25,
+      "ttft_ms": 8.35,
+      "decode_ms": 170.39,
+      "tpot_ms": 6.09,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 11,
+      "max_tokens_setting": 25,
+      "actual_tokens": 29,
+      "chunk_count": 25,
+      "ttft_ms": 8.56,
+      "decode_ms": 171.71,
+      "tpot_ms": 6.13,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 12,
+      "max_tokens_setting": 25,
+      "actual_tokens": 29,
+      "chunk_count": 25,
+      "ttft_ms": 8.46,
+      "decode_ms": 173.67,
+      "tpot_ms": 6.2,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 13,
+      "max_tokens_setting": 25,
+      "actual_tokens": 29,
+      "chunk_count": 25,
+      "ttft_ms": 8.56,
+      "decode_ms": 169.24,
+      "tpot_ms": 6.04,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 14,
+      "max_tokens_setting": 25,
+      "actual_tokens": 29,
+      "chunk_count": 25,
+      "ttft_ms": 8.41,
+      "decode_ms": 171.77,
+      "tpot_ms": 6.13,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 15,
+      "max_tokens_setting": 25,
+      "actual_tokens": 29,
+      "chunk_count": 25,
+      "ttft_ms": 8.39,
+      "decode_ms": 172.75,
+      "tpot_ms": 6.17,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 16,
+      "max_tokens_setting": 25,
+      "actual_tokens": 29,
+      "chunk_count": 25,
+      "ttft_ms": 8.28,
+      "decode_ms": 179.2,
+      "tpot_ms": 6.4,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 17,
+      "max_tokens_setting": 25,
+      "actual_tokens": 29,
+      "chunk_count": 25,
+      "ttft_ms": 7.88,
+      "decode_ms": 183.87,
+      "tpot_ms": 6.57,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 18,
+      "max_tokens_setting": 25,
+      "actual_tokens": 29,
+      "chunk_count": 25,
+      "ttft_ms": 7.96,
+      "decode_ms": 173.46,
+      "tpot_ms": 6.2,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 19,
+      "max_tokens_setting": 25,
+      "actual_tokens": 29,
+      "chunk_count": 25,
+      "ttft_ms": 7.95,
+      "decode_ms": 178.77,
+      "tpot_ms": 6.38,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 20,
+      "max_tokens_setting": 25,
+      "actual_tokens": 29,
+      "chunk_count": 25,
+      "ttft_ms": 9.14,
+      "decode_ms": 186.44,
+      "tpot_ms": 6.66,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 1,
+      "max_tokens_setting": 50,
+      "actual_tokens": 59,
+      "chunk_count": 50,
+      "ttft_ms": 11.18,
+      "decode_ms": 372.19,
+      "tpot_ms": 6.42,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 2,
+      "max_tokens_setting": 50,
+      "actual_tokens": 59,
+      "chunk_count": 50,
+      "ttft_ms": 8.64,
+      "decode_ms": 355.54,
+      "tpot_ms": 6.13,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 3,
+      "max_tokens_setting": 50,
+      "actual_tokens": 59,
+      "chunk_count": 50,
+      "ttft_ms": 7.99,
+      "decode_ms": 351.64,
+      "tpot_ms": 6.06,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 4,
+      "max_tokens_setting": 50,
+      "actual_tokens": 59,
+      "chunk_count": 50,
+      "ttft_ms": 7.97,
+      "decode_ms": 355.06,
+      "tpot_ms": 6.12,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 5,
+      "max_tokens_setting": 50,
+      "actual_tokens": 59,
+      "chunk_count": 50,
+      "ttft_ms": 8.09,
+      "decode_ms": 350.16,
+      "tpot_ms": 6.04,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 6,
+      "max_tokens_setting": 50,
+      "actual_tokens": 59,
+      "chunk_count": 50,
+      "ttft_ms": 8.51,
+      "decode_ms": 353.31,
+      "tpot_ms": 6.09,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 7,
+      "max_tokens_setting": 50,
+      "actual_tokens": 59,
+      "chunk_count": 50,
+      "ttft_ms": 9.07,
+      "decode_ms": 358.72,
+      "tpot_ms": 6.18,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 8,
+      "max_tokens_setting": 50,
+      "actual_tokens": 59,
+      "chunk_count": 50,
+      "ttft_ms": 9.4,
+      "decode_ms": 355.29,
+      "tpot_ms": 6.13,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 9,
+      "max_tokens_setting": 50,
+      "actual_tokens": 59,
+      "chunk_count": 50,
+      "ttft_ms": 9.06,
+      "decode_ms": 361.44,
+      "tpot_ms": 6.23,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 10,
+      "max_tokens_setting": 50,
+      "actual_tokens": 59,
+      "chunk_count": 50,
+      "ttft_ms": 10.36,
+      "decode_ms": 354.26,
+      "tpot_ms": 6.11,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 11,
+      "max_tokens_setting": 50,
+      "actual_tokens": 59,
+      "chunk_count": 50,
+      "ttft_ms": 8.62,
+      "decode_ms": 355.69,
+      "tpot_ms": 6.13,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 12,
+      "max_tokens_setting": 50,
+      "actual_tokens": 59,
+      "chunk_count": 50,
+      "ttft_ms": 8.83,
+      "decode_ms": 352.94,
+      "tpot_ms": 6.09,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 13,
+      "max_tokens_setting": 50,
+      "actual_tokens": 59,
+      "chunk_count": 50,
+      "ttft_ms": 8.55,
+      "decode_ms": 352.53,
+      "tpot_ms": 6.08,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 14,
+      "max_tokens_setting": 50,
+      "actual_tokens": 59,
+      "chunk_count": 50,
+      "ttft_ms": 8.48,
+      "decode_ms": 352.96,
+      "tpot_ms": 6.09,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 15,
+      "max_tokens_setting": 50,
+      "actual_tokens": 59,
+      "chunk_count": 50,
+      "ttft_ms": 9.25,
+      "decode_ms": 354.42,
+      "tpot_ms": 6.11,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 16,
+      "max_tokens_setting": 50,
+      "actual_tokens": 59,
+      "chunk_count": 50,
+      "ttft_ms": 8.75,
+      "decode_ms": 352.22,
+      "tpot_ms": 6.07,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 17,
+      "max_tokens_setting": 50,
+      "actual_tokens": 59,
+      "chunk_count": 50,
+      "ttft_ms": 8.6,
+      "decode_ms": 353.08,
+      "tpot_ms": 6.09,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 18,
+      "max_tokens_setting": 50,
+      "actual_tokens": 59,
+      "chunk_count": 50,
+      "ttft_ms": 9.0,
+      "decode_ms": 355.85,
+      "tpot_ms": 6.14,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 19,
+      "max_tokens_setting": 50,
+      "actual_tokens": 59,
+      "chunk_count": 50,
+      "ttft_ms": 8.94,
+      "decode_ms": 355.21,
+      "tpot_ms": 6.12,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 20,
+      "max_tokens_setting": 50,
+      "actual_tokens": 59,
+      "chunk_count": 50,
+      "ttft_ms": 8.78,
+      "decode_ms": 353.17,
+      "tpot_ms": 6.09,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 1,
+      "max_tokens_setting": 75,
+      "actual_tokens": 85,
+      "chunk_count": 75,
+      "ttft_ms": 8.54,
+      "decode_ms": 531.76,
+      "tpot_ms": 6.33,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 2,
+      "max_tokens_setting": 75,
+      "actual_tokens": 85,
+      "chunk_count": 75,
+      "ttft_ms": 8.63,
+      "decode_ms": 531.21,
+      "tpot_ms": 6.32,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 3,
+      "max_tokens_setting": 75,
+      "actual_tokens": 85,
+      "chunk_count": 75,
+      "ttft_ms": 8.72,
+      "decode_ms": 532.32,
+      "tpot_ms": 6.34,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 4,
+      "max_tokens_setting": 75,
+      "actual_tokens": 85,
+      "chunk_count": 75,
+      "ttft_ms": 8.55,
+      "decode_ms": 531.17,
+      "tpot_ms": 6.32,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 5,
+      "max_tokens_setting": 75,
+      "actual_tokens": 85,
+      "chunk_count": 75,
+      "ttft_ms": 8.53,
+      "decode_ms": 533.79,
+      "tpot_ms": 6.35,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 6,
+      "max_tokens_setting": 75,
+      "actual_tokens": 85,
+      "chunk_count": 75,
+      "ttft_ms": 8.58,
+      "decode_ms": 530.73,
+      "tpot_ms": 6.32,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 7,
+      "max_tokens_setting": 75,
+      "actual_tokens": 85,
+      "chunk_count": 75,
+      "ttft_ms": 8.81,
+      "decode_ms": 535.34,
+      "tpot_ms": 6.37,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 8,
+      "max_tokens_setting": 75,
+      "actual_tokens": 85,
+      "chunk_count": 75,
+      "ttft_ms": 8.85,
+      "decode_ms": 562.61,
+      "tpot_ms": 6.7,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 9,
+      "max_tokens_setting": 75,
+      "actual_tokens": 85,
+      "chunk_count": 75,
+      "ttft_ms": 9.46,
+      "decode_ms": 552.17,
+      "tpot_ms": 6.57,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 10,
+      "max_tokens_setting": 75,
+      "actual_tokens": 85,
+      "chunk_count": 75,
+      "ttft_ms": 9.44,
+      "decode_ms": 556.37,
+      "tpot_ms": 6.62,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 11,
+      "max_tokens_setting": 75,
+      "actual_tokens": 85,
+      "chunk_count": 75,
+      "ttft_ms": 9.61,
+      "decode_ms": 551.65,
+      "tpot_ms": 6.57,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 12,
+      "max_tokens_setting": 75,
+      "actual_tokens": 85,
+      "chunk_count": 75,
+      "ttft_ms": 9.11,
+      "decode_ms": 554.75,
+      "tpot_ms": 6.6,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 13,
+      "max_tokens_setting": 75,
+      "actual_tokens": 85,
+      "chunk_count": 75,
+      "ttft_ms": 8.94,
+      "decode_ms": 538.3,
+      "tpot_ms": 6.41,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 14,
+      "max_tokens_setting": 75,
+      "actual_tokens": 85,
+      "chunk_count": 75,
+      "ttft_ms": 9.05,
+      "decode_ms": 539.56,
+      "tpot_ms": 6.42,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 15,
+      "max_tokens_setting": 75,
+      "actual_tokens": 85,
+      "chunk_count": 75,
+      "ttft_ms": 9.22,
+      "decode_ms": 541.72,
+      "tpot_ms": 6.45,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 16,
+      "max_tokens_setting": 75,
+      "actual_tokens": 85,
+      "chunk_count": 75,
+      "ttft_ms": 9.21,
+      "decode_ms": 541.64,
+      "tpot_ms": 6.45,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 17,
+      "max_tokens_setting": 75,
+      "actual_tokens": 85,
+      "chunk_count": 75,
+      "ttft_ms": 8.76,
+      "decode_ms": 543.0,
+      "tpot_ms": 6.46,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 18,
+      "max_tokens_setting": 75,
+      "actual_tokens": 85,
+      "chunk_count": 75,
+      "ttft_ms": 8.85,
+      "decode_ms": 534.71,
+      "tpot_ms": 6.37,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 19,
+      "max_tokens_setting": 75,
+      "actual_tokens": 85,
+      "chunk_count": 75,
+      "ttft_ms": 8.3,
+      "decode_ms": 532.76,
+      "tpot_ms": 6.34,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 20,
+      "max_tokens_setting": 75,
+      "actual_tokens": 85,
+      "chunk_count": 75,
+      "ttft_ms": 8.13,
+      "decode_ms": 536.0,
+      "tpot_ms": 6.38,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 1,
+      "max_tokens_setting": 100,
+      "actual_tokens": 115,
+      "chunk_count": 100,
+      "ttft_ms": 8.54,
+      "decode_ms": 721.01,
+      "tpot_ms": 6.32,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 2,
+      "max_tokens_setting": 100,
+      "actual_tokens": 115,
+      "chunk_count": 100,
+      "ttft_ms": 8.14,
+      "decode_ms": 729.3,
+      "tpot_ms": 6.4,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 3,
+      "max_tokens_setting": 100,
+      "actual_tokens": 115,
+      "chunk_count": 100,
+      "ttft_ms": 8.35,
+      "decode_ms": 720.35,
+      "tpot_ms": 6.32,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 4,
+      "max_tokens_setting": 100,
+      "actual_tokens": 115,
+      "chunk_count": 100,
+      "ttft_ms": 8.13,
+      "decode_ms": 716.44,
+      "tpot_ms": 6.28,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 5,
+      "max_tokens_setting": 100,
+      "actual_tokens": 115,
+      "chunk_count": 100,
+      "ttft_ms": 8.09,
+      "decode_ms": 728.72,
+      "tpot_ms": 6.39,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 6,
+      "max_tokens_setting": 100,
+      "actual_tokens": 115,
+      "chunk_count": 100,
+      "ttft_ms": 8.02,
+      "decode_ms": 742.45,
+      "tpot_ms": 6.51,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 7,
+      "max_tokens_setting": 100,
+      "actual_tokens": 115,
+      "chunk_count": 100,
+      "ttft_ms": 8.73,
+      "decode_ms": 722.75,
+      "tpot_ms": 6.34,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 8,
+      "max_tokens_setting": 100,
+      "actual_tokens": 115,
+      "chunk_count": 100,
+      "ttft_ms": 8.4,
+      "decode_ms": 732.41,
+      "tpot_ms": 6.42,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 9,
+      "max_tokens_setting": 100,
+      "actual_tokens": 115,
+      "chunk_count": 100,
+      "ttft_ms": 7.95,
+      "decode_ms": 733.09,
+      "tpot_ms": 6.43,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 10,
+      "max_tokens_setting": 100,
+      "actual_tokens": 115,
+      "chunk_count": 100,
+      "ttft_ms": 7.9,
+      "decode_ms": 720.75,
+      "tpot_ms": 6.32,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 11,
+      "max_tokens_setting": 100,
+      "actual_tokens": 115,
+      "chunk_count": 100,
+      "ttft_ms": 8.45,
+      "decode_ms": 719.91,
+      "tpot_ms": 6.31,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 12,
+      "max_tokens_setting": 100,
+      "actual_tokens": 115,
+      "chunk_count": 100,
+      "ttft_ms": 8.42,
+      "decode_ms": 718.97,
+      "tpot_ms": 6.31,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 13,
+      "max_tokens_setting": 100,
+      "actual_tokens": 115,
+      "chunk_count": 100,
+      "ttft_ms": 8.67,
+      "decode_ms": 727.28,
+      "tpot_ms": 6.38,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 14,
+      "max_tokens_setting": 100,
+      "actual_tokens": 115,
+      "chunk_count": 100,
+      "ttft_ms": 9.77,
+      "decode_ms": 720.06,
+      "tpot_ms": 6.32,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 15,
+      "max_tokens_setting": 100,
+      "actual_tokens": 115,
+      "chunk_count": 100,
+      "ttft_ms": 7.84,
+      "decode_ms": 721.82,
+      "tpot_ms": 6.33,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 16,
+      "max_tokens_setting": 100,
+      "actual_tokens": 115,
+      "chunk_count": 100,
+      "ttft_ms": 7.92,
+      "decode_ms": 722.65,
+      "tpot_ms": 6.34,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 17,
+      "max_tokens_setting": 100,
+      "actual_tokens": 115,
+      "chunk_count": 100,
+      "ttft_ms": 8.29,
+      "decode_ms": 720.81,
+      "tpot_ms": 6.32,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 18,
+      "max_tokens_setting": 100,
+      "actual_tokens": 115,
+      "chunk_count": 100,
+      "ttft_ms": 7.95,
+      "decode_ms": 726.08,
+      "tpot_ms": 6.37,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 19,
+      "max_tokens_setting": 100,
+      "actual_tokens": 115,
+      "chunk_count": 100,
+      "ttft_ms": 7.92,
+      "decode_ms": 739.47,
+      "tpot_ms": 6.49,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 20,
+      "max_tokens_setting": 100,
+      "actual_tokens": 115,
+      "chunk_count": 100,
+      "ttft_ms": 8.07,
+      "decode_ms": 753.03,
+      "tpot_ms": 6.61,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 1,
+      "max_tokens_setting": 125,
+      "actual_tokens": 141,
+      "chunk_count": 125,
+      "ttft_ms": 8.09,
+      "decode_ms": 939.65,
+      "tpot_ms": 6.71,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 2,
+      "max_tokens_setting": 125,
+      "actual_tokens": 141,
+      "chunk_count": 125,
+      "ttft_ms": 10.91,
+      "decode_ms": 944.65,
+      "tpot_ms": 6.75,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 3,
+      "max_tokens_setting": 125,
+      "actual_tokens": 141,
+      "chunk_count": 125,
+      "ttft_ms": 10.9,
+      "decode_ms": 926.53,
+      "tpot_ms": 6.62,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 4,
+      "max_tokens_setting": 125,
+      "actual_tokens": 141,
+      "chunk_count": 125,
+      "ttft_ms": 11.17,
+      "decode_ms": 922.84,
+      "tpot_ms": 6.59,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 5,
+      "max_tokens_setting": 125,
+      "actual_tokens": 141,
+      "chunk_count": 125,
+      "ttft_ms": 11.54,
+      "decode_ms": 917.15,
+      "tpot_ms": 6.55,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 6,
+      "max_tokens_setting": 125,
+      "actual_tokens": 141,
+      "chunk_count": 125,
+      "ttft_ms": 10.69,
+      "decode_ms": 914.4,
+      "tpot_ms": 6.53,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 7,
+      "max_tokens_setting": 125,
+      "actual_tokens": 141,
+      "chunk_count": 125,
+      "ttft_ms": 11.0,
+      "decode_ms": 926.84,
+      "tpot_ms": 6.62,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 8,
+      "max_tokens_setting": 125,
+      "actual_tokens": 141,
+      "chunk_count": 125,
+      "ttft_ms": 11.57,
+      "decode_ms": 915.44,
+      "tpot_ms": 6.54,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 9,
+      "max_tokens_setting": 125,
+      "actual_tokens": 141,
+      "chunk_count": 125,
+      "ttft_ms": 10.79,
+      "decode_ms": 918.98,
+      "tpot_ms": 6.56,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 10,
+      "max_tokens_setting": 125,
+      "actual_tokens": 141,
+      "chunk_count": 125,
+      "ttft_ms": 13.51,
+      "decode_ms": 912.07,
+      "tpot_ms": 6.51,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 11,
+      "max_tokens_setting": 125,
+      "actual_tokens": 141,
+      "chunk_count": 125,
+      "ttft_ms": 10.68,
+      "decode_ms": 911.26,
+      "tpot_ms": 6.51,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 12,
+      "max_tokens_setting": 125,
+      "actual_tokens": 141,
+      "chunk_count": 125,
+      "ttft_ms": 11.21,
+      "decode_ms": 911.91,
+      "tpot_ms": 6.51,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 13,
+      "max_tokens_setting": 125,
+      "actual_tokens": 141,
+      "chunk_count": 125,
+      "ttft_ms": 11.99,
+      "decode_ms": 984.18,
+      "tpot_ms": 7.03,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 14,
+      "max_tokens_setting": 125,
+      "actual_tokens": 141,
+      "chunk_count": 125,
+      "ttft_ms": 11.62,
+      "decode_ms": 913.59,
+      "tpot_ms": 6.53,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 15,
+      "max_tokens_setting": 125,
+      "actual_tokens": 141,
+      "chunk_count": 125,
+      "ttft_ms": 10.95,
+      "decode_ms": 910.08,
+      "tpot_ms": 6.5,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 16,
+      "max_tokens_setting": 125,
+      "actual_tokens": 141,
+      "chunk_count": 125,
+      "ttft_ms": 10.83,
+      "decode_ms": 909.25,
+      "tpot_ms": 6.49,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 17,
+      "max_tokens_setting": 125,
+      "actual_tokens": 141,
+      "chunk_count": 125,
+      "ttft_ms": 10.19,
+      "decode_ms": 908.03,
+      "tpot_ms": 6.49,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 18,
+      "max_tokens_setting": 125,
+      "actual_tokens": 141,
+      "chunk_count": 125,
+      "ttft_ms": 11.73,
+      "decode_ms": 945.27,
+      "tpot_ms": 6.75,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 19,
+      "max_tokens_setting": 125,
+      "actual_tokens": 141,
+      "chunk_count": 125,
+      "ttft_ms": 41.4,
+      "decode_ms": 911.69,
+      "tpot_ms": 6.51,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 20,
+      "max_tokens_setting": 125,
+      "actual_tokens": 141,
+      "chunk_count": 125,
+      "ttft_ms": 10.47,
+      "decode_ms": 911.7,
+      "tpot_ms": 6.51,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 1,
+      "max_tokens_setting": 150,
+      "actual_tokens": 167,
+      "chunk_count": 150,
+      "ttft_ms": 28.56,
+      "decode_ms": 1096.37,
+      "tpot_ms": 6.6,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 2,
+      "max_tokens_setting": 150,
+      "actual_tokens": 167,
+      "chunk_count": 150,
+      "ttft_ms": 11.7,
+      "decode_ms": 1100.99,
+      "tpot_ms": 6.63,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 3,
+      "max_tokens_setting": 150,
+      "actual_tokens": 167,
+      "chunk_count": 150,
+      "ttft_ms": 43.91,
+      "decode_ms": 1085.99,
+      "tpot_ms": 6.54,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 4,
+      "max_tokens_setting": 150,
+      "actual_tokens": 167,
+      "chunk_count": 150,
+      "ttft_ms": 12.21,
+      "decode_ms": 1080.29,
+      "tpot_ms": 6.51,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 5,
+      "max_tokens_setting": 150,
+      "actual_tokens": 167,
+      "chunk_count": 150,
+      "ttft_ms": 11.72,
+      "decode_ms": 1118.56,
+      "tpot_ms": 6.74,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 6,
+      "max_tokens_setting": 150,
+      "actual_tokens": 167,
+      "chunk_count": 150,
+      "ttft_ms": 11.98,
+      "decode_ms": 1080.56,
+      "tpot_ms": 6.51,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 7,
+      "max_tokens_setting": 150,
+      "actual_tokens": 167,
+      "chunk_count": 150,
+      "ttft_ms": 10.92,
+      "decode_ms": 1076.25,
+      "tpot_ms": 6.48,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 8,
+      "max_tokens_setting": 150,
+      "actual_tokens": 167,
+      "chunk_count": 150,
+      "ttft_ms": 10.79,
+      "decode_ms": 1075.27,
+      "tpot_ms": 6.48,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 9,
+      "max_tokens_setting": 150,
+      "actual_tokens": 167,
+      "chunk_count": 150,
+      "ttft_ms": 11.0,
+      "decode_ms": 1077.07,
+      "tpot_ms": 6.49,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 10,
+      "max_tokens_setting": 150,
+      "actual_tokens": 167,
+      "chunk_count": 150,
+      "ttft_ms": 11.27,
+      "decode_ms": 1082.77,
+      "tpot_ms": 6.52,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 11,
+      "max_tokens_setting": 150,
+      "actual_tokens": 167,
+      "chunk_count": 150,
+      "ttft_ms": 41.14,
+      "decode_ms": 1105.32,
+      "tpot_ms": 6.66,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 12,
+      "max_tokens_setting": 150,
+      "actual_tokens": 167,
+      "chunk_count": 150,
+      "ttft_ms": 18.34,
+      "decode_ms": 1111.36,
+      "tpot_ms": 6.69,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 13,
+      "max_tokens_setting": 150,
+      "actual_tokens": 167,
+      "chunk_count": 150,
+      "ttft_ms": 11.29,
+      "decode_ms": 1108.86,
+      "tpot_ms": 6.68,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 14,
+      "max_tokens_setting": 150,
+      "actual_tokens": 167,
+      "chunk_count": 150,
+      "ttft_ms": 11.1,
+      "decode_ms": 1101.2,
+      "tpot_ms": 6.63,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 15,
+      "max_tokens_setting": 150,
+      "actual_tokens": 167,
+      "chunk_count": 150,
+      "ttft_ms": 16.62,
+      "decode_ms": 1095.07,
+      "tpot_ms": 6.6,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 16,
+      "max_tokens_setting": 150,
+      "actual_tokens": 167,
+      "chunk_count": 150,
+      "ttft_ms": 10.67,
+      "decode_ms": 1092.01,
+      "tpot_ms": 6.58,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 17,
+      "max_tokens_setting": 150,
+      "actual_tokens": 167,
+      "chunk_count": 150,
+      "ttft_ms": 10.39,
+      "decode_ms": 1089.28,
+      "tpot_ms": 6.56,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 18,
+      "max_tokens_setting": 150,
+      "actual_tokens": 167,
+      "chunk_count": 150,
+      "ttft_ms": 11.1,
+      "decode_ms": 1103.34,
+      "tpot_ms": 6.65,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 19,
+      "max_tokens_setting": 150,
+      "actual_tokens": 167,
+      "chunk_count": 150,
+      "ttft_ms": 10.76,
+      "decode_ms": 1141.06,
+      "tpot_ms": 6.87,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 20,
+      "max_tokens_setting": 150,
+      "actual_tokens": 167,
+      "chunk_count": 150,
+      "ttft_ms": 41.66,
+      "decode_ms": 1137.83,
+      "tpot_ms": 6.85,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 1,
+      "max_tokens_setting": 175,
+      "actual_tokens": 194,
+      "chunk_count": 175,
+      "ttft_ms": 11.19,
+      "decode_ms": 1303.93,
+      "tpot_ms": 6.76,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 2,
+      "max_tokens_setting": 175,
+      "actual_tokens": 194,
+      "chunk_count": 175,
+      "ttft_ms": 11.53,
+      "decode_ms": 1307.55,
+      "tpot_ms": 6.77,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 3,
+      "max_tokens_setting": 175,
+      "actual_tokens": 194,
+      "chunk_count": 175,
+      "ttft_ms": 11.66,
+      "decode_ms": 1290.85,
+      "tpot_ms": 6.69,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 4,
+      "max_tokens_setting": 175,
+      "actual_tokens": 194,
+      "chunk_count": 175,
+      "ttft_ms": 10.62,
+      "decode_ms": 1287.25,
+      "tpot_ms": 6.67,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 5,
+      "max_tokens_setting": 175,
+      "actual_tokens": 194,
+      "chunk_count": 175,
+      "ttft_ms": 42.01,
+      "decode_ms": 1283.64,
+      "tpot_ms": 6.65,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 6,
+      "max_tokens_setting": 175,
+      "actual_tokens": 194,
+      "chunk_count": 175,
+      "ttft_ms": 10.14,
+      "decode_ms": 1299.46,
+      "tpot_ms": 6.73,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 7,
+      "max_tokens_setting": 175,
+      "actual_tokens": 194,
+      "chunk_count": 175,
+      "ttft_ms": 41.09,
+      "decode_ms": 1431.31,
+      "tpot_ms": 7.42,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 8,
+      "max_tokens_setting": 175,
+      "actual_tokens": 194,
+      "chunk_count": 175,
+      "ttft_ms": 19.14,
+      "decode_ms": 1395.96,
+      "tpot_ms": 7.23,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 9,
+      "max_tokens_setting": 175,
+      "actual_tokens": 194,
+      "chunk_count": 175,
+      "ttft_ms": 11.63,
+      "decode_ms": 1378.12,
+      "tpot_ms": 7.14,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 10,
+      "max_tokens_setting": 175,
+      "actual_tokens": 194,
+      "chunk_count": 175,
+      "ttft_ms": 11.36,
+      "decode_ms": 1274.29,
+      "tpot_ms": 6.6,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 11,
+      "max_tokens_setting": 175,
+      "actual_tokens": 194,
+      "chunk_count": 175,
+      "ttft_ms": 10.55,
+      "decode_ms": 1267.65,
+      "tpot_ms": 6.57,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 12,
+      "max_tokens_setting": 175,
+      "actual_tokens": 194,
+      "chunk_count": 175,
+      "ttft_ms": 10.8,
+      "decode_ms": 1270.54,
+      "tpot_ms": 6.58,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 13,
+      "max_tokens_setting": 175,
+      "actual_tokens": 194,
+      "chunk_count": 175,
+      "ttft_ms": 10.5,
+      "decode_ms": 1304.93,
+      "tpot_ms": 6.76,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 14,
+      "max_tokens_setting": 175,
+      "actual_tokens": 194,
+      "chunk_count": 175,
+      "ttft_ms": 40.23,
+      "decode_ms": 1276.98,
+      "tpot_ms": 6.62,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 15,
+      "max_tokens_setting": 175,
+      "actual_tokens": 194,
+      "chunk_count": 175,
+      "ttft_ms": 45.74,
+      "decode_ms": 1301.97,
+      "tpot_ms": 6.75,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 16,
+      "max_tokens_setting": 175,
+      "actual_tokens": 194,
+      "chunk_count": 175,
+      "ttft_ms": 10.06,
+      "decode_ms": 1311.03,
+      "tpot_ms": 6.79,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 17,
+      "max_tokens_setting": 175,
+      "actual_tokens": 194,
+      "chunk_count": 175,
+      "ttft_ms": 10.77,
+      "decode_ms": 1421.42,
+      "tpot_ms": 7.36,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 18,
+      "max_tokens_setting": 175,
+      "actual_tokens": 194,
+      "chunk_count": 175,
+      "ttft_ms": 12.75,
+      "decode_ms": 1381.51,
+      "tpot_ms": 7.16,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 19,
+      "max_tokens_setting": 175,
+      "actual_tokens": 194,
+      "chunk_count": 175,
+      "ttft_ms": 34.95,
+      "decode_ms": 1383.89,
+      "tpot_ms": 7.17,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 20,
+      "max_tokens_setting": 175,
+      "actual_tokens": 194,
+      "chunk_count": 175,
+      "ttft_ms": 11.85,
+      "decode_ms": 1439.58,
+      "tpot_ms": 7.46,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 1,
+      "max_tokens_setting": 200,
+      "actual_tokens": 222,
+      "chunk_count": 200,
+      "ttft_ms": 12.17,
+      "decode_ms": 1614.66,
+      "tpot_ms": 7.31,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 2,
+      "max_tokens_setting": 200,
+      "actual_tokens": 222,
+      "chunk_count": 200,
+      "ttft_ms": 11.61,
+      "decode_ms": 1673.5,
+      "tpot_ms": 7.57,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 3,
+      "max_tokens_setting": 200,
+      "actual_tokens": 222,
+      "chunk_count": 200,
+      "ttft_ms": 13.14,
+      "decode_ms": 1684.89,
+      "tpot_ms": 7.62,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 4,
+      "max_tokens_setting": 200,
+      "actual_tokens": 222,
+      "chunk_count": 200,
+      "ttft_ms": 54.23,
+      "decode_ms": 1619.0,
+      "tpot_ms": 7.33,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 5,
+      "max_tokens_setting": 200,
+      "actual_tokens": 222,
+      "chunk_count": 200,
+      "ttft_ms": 12.66,
+      "decode_ms": 1577.64,
+      "tpot_ms": 7.14,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 6,
+      "max_tokens_setting": 200,
+      "actual_tokens": 222,
+      "chunk_count": 200,
+      "ttft_ms": 15.4,
+      "decode_ms": 1650.39,
+      "tpot_ms": 7.47,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 7,
+      "max_tokens_setting": 200,
+      "actual_tokens": 222,
+      "chunk_count": 200,
+      "ttft_ms": 12.98,
+      "decode_ms": 1668.38,
+      "tpot_ms": 7.55,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 8,
+      "max_tokens_setting": 200,
+      "actual_tokens": 222,
+      "chunk_count": 200,
+      "ttft_ms": 12.54,
+      "decode_ms": 1668.41,
+      "tpot_ms": 7.55,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 9,
+      "max_tokens_setting": 200,
+      "actual_tokens": 222,
+      "chunk_count": 200,
+      "ttft_ms": 10.81,
+      "decode_ms": 1517.18,
+      "tpot_ms": 6.87,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 10,
+      "max_tokens_setting": 200,
+      "actual_tokens": 222,
+      "chunk_count": 200,
+      "ttft_ms": 11.05,
+      "decode_ms": 1538.46,
+      "tpot_ms": 6.96,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 11,
+      "max_tokens_setting": 200,
+      "actual_tokens": 222,
+      "chunk_count": 200,
+      "ttft_ms": 11.59,
+      "decode_ms": 1496.52,
+      "tpot_ms": 6.77,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 12,
+      "max_tokens_setting": 200,
+      "actual_tokens": 222,
+      "chunk_count": 200,
+      "ttft_ms": 10.79,
+      "decode_ms": 1441.72,
+      "tpot_ms": 6.52,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 13,
+      "max_tokens_setting": 200,
+      "actual_tokens": 222,
+      "chunk_count": 200,
+      "ttft_ms": 10.53,
+      "decode_ms": 1486.18,
+      "tpot_ms": 6.72,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 14,
+      "max_tokens_setting": 200,
+      "actual_tokens": 222,
+      "chunk_count": 200,
+      "ttft_ms": 12.16,
+      "decode_ms": 1454.41,
+      "tpot_ms": 6.58,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 15,
+      "max_tokens_setting": 200,
+      "actual_tokens": 222,
+      "chunk_count": 200,
+      "ttft_ms": 10.47,
+      "decode_ms": 1438.43,
+      "tpot_ms": 6.51,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 16,
+      "max_tokens_setting": 200,
+      "actual_tokens": 222,
+      "chunk_count": 200,
+      "ttft_ms": 10.47,
+      "decode_ms": 1507.75,
+      "tpot_ms": 6.82,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 17,
+      "max_tokens_setting": 200,
+      "actual_tokens": 222,
+      "chunk_count": 200,
+      "ttft_ms": 11.67,
+      "decode_ms": 1524.32,
+      "tpot_ms": 6.9,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 18,
+      "max_tokens_setting": 200,
+      "actual_tokens": 222,
+      "chunk_count": 200,
+      "ttft_ms": 11.42,
+      "decode_ms": 1501.33,
+      "tpot_ms": 6.79,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 19,
+      "max_tokens_setting": 200,
+      "actual_tokens": 222,
+      "chunk_count": 200,
+      "ttft_ms": 11.22,
+      "decode_ms": 1555.04,
+      "tpot_ms": 7.04,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 20,
+      "max_tokens_setting": 200,
+      "actual_tokens": 222,
+      "chunk_count": 200,
+      "ttft_ms": 12.68,
+      "decode_ms": 1579.58,
+      "tpot_ms": 7.15,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 1,
+      "max_tokens_setting": 250,
+      "actual_tokens": 275,
+      "chunk_count": 250,
+      "ttft_ms": 12.33,
+      "decode_ms": 1931.09,
+      "tpot_ms": 7.05,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 2,
+      "max_tokens_setting": 250,
+      "actual_tokens": 275,
+      "chunk_count": 250,
+      "ttft_ms": 12.35,
+      "decode_ms": 2217.29,
+      "tpot_ms": 8.09,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 3,
+      "max_tokens_setting": 250,
+      "actual_tokens": 275,
+      "chunk_count": 250,
+      "ttft_ms": 11.6,
+      "decode_ms": 2138.25,
+      "tpot_ms": 7.8,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 4,
+      "max_tokens_setting": 250,
+      "actual_tokens": 275,
+      "chunk_count": 250,
+      "ttft_ms": 12.15,
+      "decode_ms": 2094.51,
+      "tpot_ms": 7.64,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 5,
+      "max_tokens_setting": 250,
+      "actual_tokens": 275,
+      "chunk_count": 250,
+      "ttft_ms": 12.53,
+      "decode_ms": 2108.23,
+      "tpot_ms": 7.69,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 6,
+      "max_tokens_setting": 250,
+      "actual_tokens": 275,
+      "chunk_count": 250,
+      "ttft_ms": 41.82,
+      "decode_ms": 2108.71,
+      "tpot_ms": 7.7,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 7,
+      "max_tokens_setting": 250,
+      "actual_tokens": 275,
+      "chunk_count": 250,
+      "ttft_ms": 12.87,
+      "decode_ms": 2148.15,
+      "tpot_ms": 7.84,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 8,
+      "max_tokens_setting": 250,
+      "actual_tokens": 275,
+      "chunk_count": 250,
+      "ttft_ms": 13.16,
+      "decode_ms": 2122.13,
+      "tpot_ms": 7.74,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 9,
+      "max_tokens_setting": 250,
+      "actual_tokens": 275,
+      "chunk_count": 250,
+      "ttft_ms": 11.63,
+      "decode_ms": 2122.1,
+      "tpot_ms": 7.74,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 10,
+      "max_tokens_setting": 250,
+      "actual_tokens": 275,
+      "chunk_count": 250,
+      "ttft_ms": 46.11,
+      "decode_ms": 2066.73,
+      "tpot_ms": 7.54,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 11,
+      "max_tokens_setting": 250,
+      "actual_tokens": 275,
+      "chunk_count": 250,
+      "ttft_ms": 11.32,
+      "decode_ms": 2047.8,
+      "tpot_ms": 7.47,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 12,
+      "max_tokens_setting": 250,
+      "actual_tokens": 275,
+      "chunk_count": 250,
+      "ttft_ms": 11.98,
+      "decode_ms": 2032.35,
+      "tpot_ms": 7.42,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 13,
+      "max_tokens_setting": 250,
+      "actual_tokens": 275,
+      "chunk_count": 250,
+      "ttft_ms": 11.63,
+      "decode_ms": 2061.31,
+      "tpot_ms": 7.52,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 14,
+      "max_tokens_setting": 250,
+      "actual_tokens": 275,
+      "chunk_count": 250,
+      "ttft_ms": 14.52,
+      "decode_ms": 2067.58,
+      "tpot_ms": 7.55,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 15,
+      "max_tokens_setting": 250,
+      "actual_tokens": 275,
+      "chunk_count": 250,
+      "ttft_ms": 12.95,
+      "decode_ms": 2110.21,
+      "tpot_ms": 7.7,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 16,
+      "max_tokens_setting": 250,
+      "actual_tokens": 275,
+      "chunk_count": 250,
+      "ttft_ms": 12.5,
+      "decode_ms": 2070.79,
+      "tpot_ms": 7.56,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 17,
+      "max_tokens_setting": 250,
+      "actual_tokens": 275,
+      "chunk_count": 250,
+      "ttft_ms": 16.02,
+      "decode_ms": 2044.51,
+      "tpot_ms": 7.46,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 18,
+      "max_tokens_setting": 250,
+      "actual_tokens": 275,
+      "chunk_count": 250,
+      "ttft_ms": 11.29,
+      "decode_ms": 2056.27,
+      "tpot_ms": 7.5,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 19,
+      "max_tokens_setting": 250,
+      "actual_tokens": 275,
+      "chunk_count": 250,
+      "ttft_ms": 11.47,
+      "decode_ms": 2072.62,
+      "tpot_ms": 7.56,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 20,
+      "max_tokens_setting": 250,
+      "actual_tokens": 275,
+      "chunk_count": 250,
+      "ttft_ms": 12.66,
+      "decode_ms": 2073.63,
+      "tpot_ms": 7.57,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 1,
+      "max_tokens_setting": 300,
+      "actual_tokens": 330,
+      "chunk_count": 300,
+      "ttft_ms": 12.24,
+      "decode_ms": 2524.17,
+      "tpot_ms": 7.67,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 2,
+      "max_tokens_setting": 300,
+      "actual_tokens": 330,
+      "chunk_count": 300,
+      "ttft_ms": 11.67,
+      "decode_ms": 2512.58,
+      "tpot_ms": 7.64,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 3,
+      "max_tokens_setting": 300,
+      "actual_tokens": 330,
+      "chunk_count": 300,
+      "ttft_ms": 42.7,
+      "decode_ms": 2558.38,
+      "tpot_ms": 7.78,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 4,
+      "max_tokens_setting": 300,
+      "actual_tokens": 330,
+      "chunk_count": 300,
+      "ttft_ms": 12.58,
+      "decode_ms": 2516.51,
+      "tpot_ms": 7.65,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 5,
+      "max_tokens_setting": 300,
+      "actual_tokens": 330,
+      "chunk_count": 300,
+      "ttft_ms": 11.86,
+      "decode_ms": 2537.97,
+      "tpot_ms": 7.71,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 6,
+      "max_tokens_setting": 300,
+      "actual_tokens": 330,
+      "chunk_count": 300,
+      "ttft_ms": 43.64,
+      "decode_ms": 2538.08,
+      "tpot_ms": 7.71,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 7,
+      "max_tokens_setting": 300,
+      "actual_tokens": 330,
+      "chunk_count": 300,
+      "ttft_ms": 11.86,
+      "decode_ms": 2518.01,
+      "tpot_ms": 7.65,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 8,
+      "max_tokens_setting": 300,
+      "actual_tokens": 330,
+      "chunk_count": 300,
+      "ttft_ms": 11.0,
+      "decode_ms": 2491.63,
+      "tpot_ms": 7.57,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 9,
+      "max_tokens_setting": 300,
+      "actual_tokens": 330,
+      "chunk_count": 300,
+      "ttft_ms": 11.3,
+      "decode_ms": 2501.31,
+      "tpot_ms": 7.6,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 10,
+      "max_tokens_setting": 300,
+      "actual_tokens": 330,
+      "chunk_count": 300,
+      "ttft_ms": 14.6,
+      "decode_ms": 2511.51,
+      "tpot_ms": 7.63,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 11,
+      "max_tokens_setting": 300,
+      "actual_tokens": 330,
+      "chunk_count": 300,
+      "ttft_ms": 11.84,
+      "decode_ms": 2504.46,
+      "tpot_ms": 7.61,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 12,
+      "max_tokens_setting": 300,
+      "actual_tokens": 330,
+      "chunk_count": 300,
+      "ttft_ms": 12.76,
+      "decode_ms": 2531.07,
+      "tpot_ms": 7.69,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 13,
+      "max_tokens_setting": 300,
+      "actual_tokens": 330,
+      "chunk_count": 300,
+      "ttft_ms": 12.95,
+      "decode_ms": 2453.9,
+      "tpot_ms": 7.46,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 14,
+      "max_tokens_setting": 300,
+      "actual_tokens": 330,
+      "chunk_count": 300,
+      "ttft_ms": 13.82,
+      "decode_ms": 2487.77,
+      "tpot_ms": 7.56,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 15,
+      "max_tokens_setting": 300,
+      "actual_tokens": 330,
+      "chunk_count": 300,
+      "ttft_ms": 11.84,
+      "decode_ms": 2533.04,
+      "tpot_ms": 7.7,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 16,
+      "max_tokens_setting": 300,
+      "actual_tokens": 330,
+      "chunk_count": 300,
+      "ttft_ms": 10.64,
+      "decode_ms": 2367.51,
+      "tpot_ms": 7.2,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 17,
+      "max_tokens_setting": 300,
+      "actual_tokens": 330,
+      "chunk_count": 300,
+      "ttft_ms": 10.29,
+      "decode_ms": 2434.79,
+      "tpot_ms": 7.4,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 18,
+      "max_tokens_setting": 300,
+      "actual_tokens": 330,
+      "chunk_count": 300,
+      "ttft_ms": 16.69,
+      "decode_ms": 2302.41,
+      "tpot_ms": 7.0,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 19,
+      "max_tokens_setting": 300,
+      "actual_tokens": 330,
+      "chunk_count": 300,
+      "ttft_ms": 12.31,
+      "decode_ms": 2351.89,
+      "tpot_ms": 7.15,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 20,
+      "max_tokens_setting": 300,
+      "actual_tokens": 330,
+      "chunk_count": 300,
+      "ttft_ms": 10.0,
+      "decode_ms": 2320.86,
+      "tpot_ms": 7.05,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 1,
+      "max_tokens_setting": 350,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 11.1,
+      "decode_ms": 2578.4,
+      "tpot_ms": 7.24,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 2,
+      "max_tokens_setting": 350,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 11.42,
+      "decode_ms": 2581.07,
+      "tpot_ms": 7.25,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 3,
+      "max_tokens_setting": 350,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 11.49,
+      "decode_ms": 2564.71,
+      "tpot_ms": 7.2,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 4,
+      "max_tokens_setting": 350,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 10.84,
+      "decode_ms": 2559.42,
+      "tpot_ms": 7.19,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 5,
+      "max_tokens_setting": 350,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 41.73,
+      "decode_ms": 2554.56,
+      "tpot_ms": 7.18,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 6,
+      "max_tokens_setting": 350,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 11.24,
+      "decode_ms": 2602.88,
+      "tpot_ms": 7.31,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 7,
+      "max_tokens_setting": 350,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 11.69,
+      "decode_ms": 2664.6,
+      "tpot_ms": 7.48,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 8,
+      "max_tokens_setting": 350,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 11.41,
+      "decode_ms": 2689.6,
+      "tpot_ms": 7.56,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 9,
+      "max_tokens_setting": 350,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 12.79,
+      "decode_ms": 2793.55,
+      "tpot_ms": 7.85,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 10,
+      "max_tokens_setting": 350,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 12.93,
+      "decode_ms": 2773.38,
+      "tpot_ms": 7.79,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 11,
+      "max_tokens_setting": 350,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 17.32,
+      "decode_ms": 2811.25,
+      "tpot_ms": 7.9,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 12,
+      "max_tokens_setting": 350,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 12.23,
+      "decode_ms": 2758.08,
+      "tpot_ms": 7.75,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 13,
+      "max_tokens_setting": 350,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 12.41,
+      "decode_ms": 2814.43,
+      "tpot_ms": 7.91,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 14,
+      "max_tokens_setting": 350,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 11.81,
+      "decode_ms": 2728.43,
+      "tpot_ms": 7.66,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 15,
+      "max_tokens_setting": 350,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 11.95,
+      "decode_ms": 2759.85,
+      "tpot_ms": 7.75,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 16,
+      "max_tokens_setting": 350,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 17.03,
+      "decode_ms": 2803.81,
+      "tpot_ms": 7.88,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 17,
+      "max_tokens_setting": 350,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 12.25,
+      "decode_ms": 2762.95,
+      "tpot_ms": 7.76,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 18,
+      "max_tokens_setting": 350,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 11.94,
+      "decode_ms": 2757.34,
+      "tpot_ms": 7.75,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 19,
+      "max_tokens_setting": 350,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 11.38,
+      "decode_ms": 2799.88,
+      "tpot_ms": 7.86,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 20,
+      "max_tokens_setting": 350,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 12.02,
+      "decode_ms": 2787.31,
+      "tpot_ms": 7.83,
+      "is_truncated": true
+    },
+    {
+      "run_idx": 1,
+      "max_tokens_setting": 400,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 11.49,
+      "decode_ms": 2748.68,
+      "tpot_ms": 7.72,
+      "is_truncated": false
+    },
+    {
+      "run_idx": 2,
+      "max_tokens_setting": 400,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 41.7,
+      "decode_ms": 2662.34,
+      "tpot_ms": 7.48,
+      "is_truncated": false
+    },
+    {
+      "run_idx": 3,
+      "max_tokens_setting": 400,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 11.86,
+      "decode_ms": 2638.2,
+      "tpot_ms": 7.41,
+      "is_truncated": false
+    },
+    {
+      "run_idx": 4,
+      "max_tokens_setting": 400,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 12.14,
+      "decode_ms": 2752.87,
+      "tpot_ms": 7.73,
+      "is_truncated": false
+    },
+    {
+      "run_idx": 5,
+      "max_tokens_setting": 400,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 12.58,
+      "decode_ms": 2573.99,
+      "tpot_ms": 7.23,
+      "is_truncated": false
+    },
+    {
+      "run_idx": 6,
+      "max_tokens_setting": 400,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 11.28,
+      "decode_ms": 2672.25,
+      "tpot_ms": 7.51,
+      "is_truncated": false
+    },
+    {
+      "run_idx": 7,
+      "max_tokens_setting": 400,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 12.2,
+      "decode_ms": 2616.96,
+      "tpot_ms": 7.35,
+      "is_truncated": false
+    },
+    {
+      "run_idx": 8,
+      "max_tokens_setting": 400,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 11.69,
+      "decode_ms": 2580.68,
+      "tpot_ms": 7.25,
+      "is_truncated": false
+    },
+    {
+      "run_idx": 9,
+      "max_tokens_setting": 400,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 12.22,
+      "decode_ms": 2609.33,
+      "tpot_ms": 7.33,
+      "is_truncated": false
+    },
+    {
+      "run_idx": 10,
+      "max_tokens_setting": 400,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 44.03,
+      "decode_ms": 2505.15,
+      "tpot_ms": 7.04,
+      "is_truncated": false
+    },
+    {
+      "run_idx": 11,
+      "max_tokens_setting": 400,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 12.07,
+      "decode_ms": 2535.72,
+      "tpot_ms": 7.12,
+      "is_truncated": false
+    },
+    {
+      "run_idx": 12,
+      "max_tokens_setting": 400,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 12.61,
+      "decode_ms": 2613.93,
+      "tpot_ms": 7.34,
+      "is_truncated": false
+    },
+    {
+      "run_idx": 13,
+      "max_tokens_setting": 400,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 40.62,
+      "decode_ms": 2420.09,
+      "tpot_ms": 6.8,
+      "is_truncated": false
+    },
+    {
+      "run_idx": 14,
+      "max_tokens_setting": 400,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 10.9,
+      "decode_ms": 2372.93,
+      "tpot_ms": 6.67,
+      "is_truncated": false
+    },
+    {
+      "run_idx": 15,
+      "max_tokens_setting": 400,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 39.76,
+      "decode_ms": 2468.11,
+      "tpot_ms": 6.93,
+      "is_truncated": false
+    },
+    {
+      "run_idx": 16,
+      "max_tokens_setting": 400,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 10.85,
+      "decode_ms": 2493.17,
+      "tpot_ms": 7.0,
+      "is_truncated": false
+    },
+    {
+      "run_idx": 17,
+      "max_tokens_setting": 400,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 11.51,
+      "decode_ms": 2507.32,
+      "tpot_ms": 7.04,
+      "is_truncated": false
+    },
+    {
+      "run_idx": 18,
+      "max_tokens_setting": 400,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 10.33,
+      "decode_ms": 2543.28,
+      "tpot_ms": 7.14,
+      "is_truncated": false
+    },
+    {
+      "run_idx": 19,
+      "max_tokens_setting": 400,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 10.73,
+      "decode_ms": 2472.63,
+      "tpot_ms": 6.95,
+      "is_truncated": false
+    },
+    {
+      "run_idx": 20,
+      "max_tokens_setting": 400,
+      "actual_tokens": 357,
+      "chunk_count": 326,
+      "ttft_ms": 11.84,
+      "decode_ms": 2532.52,
+      "tpot_ms": 7.11,
+      "is_truncated": false
+    }
+  ]
+}
